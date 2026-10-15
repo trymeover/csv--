@@ -1,8 +1,13 @@
+import argparse
+
 from utlis import csv_count
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="csv数据分析小工具")
+    parser.add_argument("--flie", required=True, help="csv文件路径")
+    args = parser.parse_args()
     # 这里写你的csv真实路径，前面加r防止转义
-    result = csv_count(r"D:\csv_tool\stu.csv")
+    result = csv_count(args.file)
 
     # 打印总行数
     print(f"数据总行数：{result['total_rows']}")
