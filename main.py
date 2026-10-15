@@ -1,7 +1,7 @@
 from utlis import csv_count
-if __name__=="__main__":
 
-        # 这里写你的csv真实路径，前面加r防止转义
+if __name__ == "__main__":
+    # 这里写你的csv真实路径，前面加r防止转义
     result = csv_count(r"D:\csv_tool\stu.csv")
 
     # 打印总行数
@@ -23,3 +23,9 @@ if __name__=="__main__":
         else:
             print(f"  {col_name}：无法计算均值（无数字）")
 
+    print("-" * 40)
+
+    # ✅ 新增：打印每行空值数量
+    print("每行空值统计：")
+    for i, cnt in enumerate(result["row_null_counts"], start=1):
+        print(f"  第 {i} 行：{cnt} 个空值")
